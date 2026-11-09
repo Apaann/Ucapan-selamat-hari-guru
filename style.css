@@ -1,0 +1,474 @@
+:root {
+  --rose: #c92f68;
+  --rose-2: #ef7199;
+  --script: #a8275a;
+  --ink: #4b2638;
+  --muted: #8e6878;
+  --paper: #fffdf9;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #fff7f9, #ffe3ec, #fbcfdc, #fff0e4);
+  background-size: 400% 400%;
+  animation: bgShift 18s ease infinite;
+}
+
+@keyframes bgShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Tombol utama */
+.primary {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 24px;
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(110deg, var(--rose), #ec5484);
+  box-shadow: 0 8px 20px rgba(201, 47, 104, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(201, 47, 104, 0.3);
+}
+
+/* Layar pembuka */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(145deg, rgba(255, 247, 250, 0.97), rgba(255, 221, 232, 0.97));
+  transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+
+.intro.leave {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-card {
+  width: min(380px, 92vw);
+  padding: 42px 28px 34px;
+  text-align: center;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #fff;
+  box-shadow: 0 24px 60px rgba(126, 49, 78, 0.18);
+}
+
+.mail {
+  position: relative;
+  width: 84px;
+  height: 58px;
+  margin: 0 auto 22px;
+  border-radius: 9px;
+  background: linear-gradient(145deg, #ffd3df, #f2869f);
+  box-shadow: 0 10px 22px rgba(170, 40, 90, 0.2);
+  animation: float 2.6s ease-in-out infinite;
+}
+
+.mail::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60%;
+  background: #f7a6bd;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-radius: 9px 9px 0 0;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.intro-kicker {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--rose);
+  margin: 0 0 8px;
+}
+
+.intro-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(40px, 9vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--script);
+  margin: 0 0 10px;
+}
+
+.intro-copy {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+
+.intro .primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-width: 200px;
+  margin: 0 auto;
+}
+
+/* Halaman surat */
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  overflow: hidden;
+}
+
+.deco {
+  position: absolute;
+  z-index: 0;
+  font-size: 30px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: sway 6s ease-in-out infinite;
+}
+
+.d1 {
+  top: 40px;
+  left: 4%;
+}
+
+.d2 {
+  top: 90px;
+  right: 5%;
+  font-size: 36px;
+  animation-delay: 1s;
+}
+
+.d3 {
+  bottom: 60px;
+  left: 8%;
+  animation-delay: 2s;
+}
+
+.d4 {
+  bottom: 40px;
+  right: 8%;
+  font-size: 34px;
+  animation-delay: 3s;
+}
+
+@keyframes sway {
+  50% {
+    transform: translateY(-14px) rotate(10deg);
+  }
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+  padding-top: 240px;
+  text-align: center;
+  animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Judul: naik saat surat dibuka */
+.head {
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--rose);
+  margin: 0 0 4px;
+}
+
+.title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(46px, 9vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--script);
+  margin: 0;
+}
+
+/* Amplop */
+.envelope {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 220px;
+  margin: 14px auto 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.envelope:focus-visible {
+  outline: 3px solid var(--rose-2);
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+
+.back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #f7adc4, #d9507f);
+  box-shadow: 0 18px 40px rgba(170, 40, 90, 0.25);
+}
+
+.letter {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 14px;
+  height: 310px;
+  z-index: 2;
+  padding: 22px 20px 18px;
+  overflow: hidden;
+  text-align: left;
+  color: var(--ink);
+  border-radius: 10px;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 31px, #f3dfe6 31px 32px);
+  box-shadow: 0 10px 26px rgba(90, 30, 55, 0.18);
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease;
+}
+
+.envelope.open .letter {
+  transform: translateY(-110px);
+  opacity: 1;
+}
+
+.salam {
+  font-family: "Dancing Script", cursive;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--script);
+  margin: 0 0 6px;
+}
+
+.message {
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.sign {
+  font-family: "Dancing Script", cursive;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--script);
+  text-align: right;
+  margin: 12px 0 0;
+}
+
+.pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 14px;
+  pointer-events: none;
+  background: linear-gradient(145deg, #e8759b, #bd2f65);
+  clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 58%;
+  z-index: 4;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(145deg, #ffd0dd, #f29ab6);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.7s ease;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #ffe6ee;
+  color: var(--rose);
+  font-size: 24px;
+  box-shadow: 0 6px 16px rgba(120, 20, 60, 0.3);
+  transform: translate(-50%, -50%);
+  animation: pulse 1.8s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+
+.envelope.open .seal {
+  opacity: 0;
+}
+
+@keyframes pulse {
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Kontrol */
+.controls {
+  width: min(400px, 92vw);
+  margin: 34px auto 0;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #fff;
+  box-shadow: 0 14px 36px rgba(122, 47, 77, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 4px;
+}
+
+/* Bunga yang jatuh */
+.fall {
+  position: fixed;
+  top: -8%;
+  z-index: 30;
+  font-size: 22px;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding-top: 230px;
+  }
+
+  .envelope {
+    height: 200px;
+  }
+
+  .controls {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .fall {
+    display: none;
+  }
+}
+
+/* Tombol tutup surat */
+.ghost {
+  background: transparent;
+  color: var(--rose);
+  border: 2px solid var(--rose);
+  box-shadow: none;
+  margin-top: 10px;
+}
+
+.ghost:hover {
+  background: rgba(201, 47, 104, 0.06);
+  box-shadow: none;
+}

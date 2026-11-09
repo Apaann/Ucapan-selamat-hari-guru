@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Surat Hari Guru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <section class="intro" id="intro">
+    <div class="intro-card">
+      <div class="mail" aria-hidden="true"></div>
+      <p class="intro-kicker">Ada pesan untukmu</p>
+      <h1 class="intro-title">You have message!</h1>
+      <p class="intro-copy">Sebuah surat kecil sebagai tanda terima kasih.</p>
+      <button class="primary" id="introBtn" type="button">Open</button>
+    </div>
+  </section>
+
+  <main class="page" id="page" hidden>
+    <span class="deco d1" aria-hidden="true">🌸</span>
+    <span class="deco d2" aria-hidden="true">🌷</span>
+    <span class="deco d3" aria-hidden="true">🌷</span>
+    <span class="deco d4" aria-hidden="true">🌸</span>
+
+    <section class="wrap">
+      <div class="head" id="head">
+        <p class="kicker">25 November · Hari Guru Nasional</p>
+        <h2 class="title">Selamat Hari Guru</h2>
+      </div>
+
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Buka surat">
+        <div class="back"></div>
+        <div class="letter" id="letter">
+          <p class="salam" id="salam">Untuk Guru Tercinta,</p>
+          <p class="message" id="message"></p>
+          <p class="sign">Dengan penuh cinta,<br>Murid-muridmu</p>
+        </div>
+        <div class="pocket"></div>
+        <div class="flap"></div>
+        <div class="seal" aria-hidden="true">♥</div>
+      </div>
+
+      <div class="controls">
+        <p class="hint">Ketuk amplop untuk membuka surat</p>
+        <button class="primary" id="openBtn" type="button">Buka Surat</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
